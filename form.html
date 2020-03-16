@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tarefa</title>
+<style type="text/css">
+	#buttons{
+		padding-top: 1%;
+	}
+	</style>
+<link rel="icon" href="https://i2.wp.com/portalmoznews.com/wp-content/uploads/2017/06/ronaldo-careca-portalmoznews.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<h1 id="jeff">Entao o q e q temos de fazer</h1>
+	<input class="form-control" id="pass" type="password" placeholder="Password (Sim é facil de hackear)">
+	<br>
+		<form id="form">
+    <textarea class="form-control" id="desc" rows="3" placeholder="Descrição"></textarea>
+    <div id="buttons">
+      <button onclick="jeff()" class="btn btn-primary">Adicionar</button>
+        <button type="button" class="btn btn-primary" onclick="window.location='/';">Voltar</button>
+  	</div>
+  </form>
+  <br>
+  	<form id="delete-form">
+    <input class="example-number-input" id="delete" rows="3" placeholder="Numero da tarefa"></input>
+    <div id="buttons">
+      <button onclick="jeffy()" class="btn btn-primary">Apagar</button>
+  	</div>
+  </form>
+</body>
+      <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+	var socket = io();
+	function jeff(){
+		if(document.getElementById("desc").value == ''){
+			alert("Escreve crl");
+		}else{
+		if(document.getElementById("pass").value == "eatasssmokegrass"){
+		writyboi = document.getElementById("desc").value;
+		console.log(writyboi);
+		var i;
+		socket.emit('write on file', writyboi);
+		alert("Já podes voltar (eu sou demasiado burro para fazer um redirect) (sim isto é um copy paste do site de biologia achas que estou com pachorra para fazer algo novo)");
+	}else{
+		alert("Password errada")
+		  	}
+	}
+	}
+	function jeffy(){
+		if(document.getElementById("delete").value == ''){
+			alert("Escreve crl");
+		}else{
+			if(document.getElementById("pass").value == "eatasssmokegrass"){
+				delet = document.getElementById("delete").value;
+				socket.emit('remove from file', delet)
+				alert("Bota esse Voltar gostoso");
+			}else{
+				alert("Password errada dipshit");
+			}
+		}
+	}
+</script>
+</html>

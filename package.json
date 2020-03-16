@@ -1,0 +1,18 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Idk it's a list for stuff to do from school and it also secretly steals cookies i guess",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^13.10.1",
+    "pg": "^7.18.2",
+    "socket.io": "^2.3.0"
+  }
+}
