@@ -35,16 +35,24 @@ io.on('connection', function(socket){
 		socket.emit('give', result.rows);
 	});
 	});
-	socket.on('write on file', function(writyboi){
+	socket.on('write on file', function(writyboi, pass){
+		if(pass == "youeatallmybeans"){
   			 	con.query('INSERT INTO todo VALUES(DEFAULT,\''+writyboi+'\');', function (err) {
     			if (err) throw err;
   			});
 	 	console.log('Saved!');
+	 }else{
+	 	console.log('Wong passwod');
+	 }
 	});
-	socket.on('remove from file', function(delet){
+	socket.on('remove from file', function(delet, pass){
+		if(pass == "youeatallmybeans"){
 		con.query('DELETE FROM todo WHERE todo.id = '+delet, function (err) {
     			if (err) throw err;
   			});
 		console.log('Deleted!');
+	}else{
+		console.log('You playin with dat pass deletin');
+	}
 	})
 });

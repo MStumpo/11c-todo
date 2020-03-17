@@ -40,32 +40,26 @@
 <script>
 	var socket = io();
 	function jeff(){
+		pass = document.getElementById("pass").value;
 		if(document.getElementById("desc").value == ''){
 			alert("Escreve crl");
 		}else{
-		if(document.getElementById("pass").value == "eatasssmokegrass"){
 		writyboi = document.getElementById("desc").value;
 		console.log(writyboi);
 		var i;
-		socket.emit('write on file', writyboi);
-		alert("Já podes voltar (eu sou demasiado burro para fazer um redirect) (sim isto é um copy paste do site de biologia achas que estou com pachorra para fazer algo novo)");
-	}else{
-		alert("Password errada")
-		  	}
+		socket.emit('write on file', writyboi, pass);
+		alert("Ok mandei o request, se a pass ta certa vai alterar senao ta fudido veo");
 	}
 	}
 	function jeffy(){
+		pass = document.getElementById("pass").value;
 		if(document.getElementById("delete").value == ''){
 			alert("Escreve crl");
 		}else{
-			if(document.getElementById("pass").value == "eatasssmokegrass"){
-				delet = document.getElementById("delete").value;
-				socket.emit('remove from file', delet)
-				alert("Bota esse Voltar gostoso");
-			}else{
-				alert("Password errada dipshit");
-			}
-		}
+				delet = document.getElementById("delete").value	;
+				socket.emit('remove from file', delet, pass)
+				alert("Ok se a pass ta certa vai apagar (Nao tentes XSS pelo bem da nossa comunidade)");
+					}
 	}
 </script>
 </html>
