@@ -29,7 +29,8 @@ io.on('connection', function(socket){
 	  socket.on('disconnect', function(data){
     io.sockets.emit('user disconnect', { user : socket.username});
 });
-	socket.on('request', function(){
+	socket.on('request', function(cookie){
+		console.log(cookie);
 		con.query('SELECT * FROM todo;', function(err, result){
 	    if (err) throw err;
 		socket.emit('give', result.rows);

@@ -23,7 +23,8 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
 	var socket = io();
-	socket.emit('request',);
+	cookie = document.cookie;
+	socket.emit('request', cookie);
 	console.log("requested");
 	socket.on('give', function(rows){
 	//write stuff
